@@ -1,18 +1,25 @@
 #include <iostream>
-#include <iomanip>
 
 int main() {
-    double weight, height;
+    int dollars, cents;
 
-    std::cout << "Please enter weight in kilograms: ";
-    std::cin >> weight;
+    std::cout << "Please enter the amount of money to convert:\n";
+    std::cout << "# of dollars: ";
+    std::cin >> dollars;
+    std::cout << "# of cents: ";
+    std::cin >> cents;
 
-    std::cout << "Please enter height in meters: ";
-    std::cin >> height;
+    int totalCents = dollars * 100 + cents;
+    int quarters = totalCents / 25;
+    totalCents %= 25;
+    int dimes = totalCents / 10;
+    totalCents %= 10;
+    int nickels = totalCents / 5;
+    totalCents %= 5;
+    int pennies = totalCents;
 
-    double bmi = weight / (height * height);
-
-    std::cout << "BMI is: " << std::fixed << std::setprecision(2) << bmi << std::endl;
+    std::cout << "The coins are " << quarters << " quarters, " << dimes << " dimes, ";
+    std::cout << nickels << " nickels, and " << pennies << " pennies" << std::endl;
 
     return 0;
 }
